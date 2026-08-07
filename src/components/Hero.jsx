@@ -7,7 +7,7 @@ import {
   FaDownload,
 } from "react-icons/fa";
 
-import profile from "../assets/profile.png";
+import profile from "../assets/profile.PNG";
 
 const Hero = () => {
   return (
