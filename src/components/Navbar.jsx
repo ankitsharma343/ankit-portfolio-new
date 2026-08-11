@@ -6,6 +6,7 @@ import {
   FaGithub,
   FaLinkedin,
   FaDownload,
+  FaWhatsapp,
 } from "react-icons/fa";
 
 const links = [
@@ -67,7 +68,7 @@ const Navbar = () => {
         {/* Right Side */}
 
         <div className="hidden lg:flex items-center gap-4">
-
+         
           <a
             href="https://github.com/ankitsharma343"
             target="_blank"
@@ -84,6 +85,15 @@ const Navbar = () => {
             className="p-3 rounded-full border border-white/10 bg-white/5 hover:bg-linear-to-r hover:from-cyan-500 hover:to-purple-600 hover:text-white hover:scale-110 duration-300"
           >
             <FaLinkedin size={20} />
+          </a>
+
+          <a
+            href="https://web.whatsapp.com/7495095523"
+            target="_blank"
+            rel="noreferrer"
+            className="p-3 rounded-full border border-white/10 bg-white/5 hover:bg-linear-to-r hover:from-cyan-500 hover:to-purple-600 hover:text-white hover:scale-110 duration-300"
+          >
+            <FaWhatsapp size={20} />
           </a>
 
           <a

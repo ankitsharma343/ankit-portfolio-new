@@ -61,7 +61,7 @@ const Footer = () => {
               </a>
 
               <a
-                href="#"
+                href="https://www.instagram.com/ankit_baali_0008/"
                 className="w-10 h-10 rounded-xl border border-white/10 flex items-center justify-center hover:bg-white hover:text-black transition-all duration-300"
                 aria-label="Instagram"
               >
