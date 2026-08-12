@@ -130,7 +130,7 @@ const Navbar = () => {
         className="overflow-hidden lg:hidden bg-black/95 backdrop-blur-xl"
       >
 
-        <div className="flex flex-col items-center justify-center h-full gap-10">
+        <div className="flex flex-col items-center justify-center h-130 gap-9">
 
           {links.map((item) => (
 
