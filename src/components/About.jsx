@@ -22,7 +22,7 @@ const skills = [
 const stats = [
   {
     icon: <FaLaptopCode />,
-    number: "10+",
+    number: "5+",
     title: "Projects Built",
   },
   {
