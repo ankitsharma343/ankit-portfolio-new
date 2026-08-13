@@ -163,7 +163,17 @@ const Navbar = () => {
               className="p-4 rounded-full border border-white/20 hover:bg-cyan-500 duration-300"
             >
               <FaLinkedin size={24}/>
-            </a>
+            </a> 
+
+             <a
+            href={resume}
+            download
+            className="flex items-center gap-2 px-5 py-3 rounded-full bg-linear-to-r from-cyan-500 via-purple-500 to-pink-500 text-white font-semibold hover:scale-105 duration-300 shadow-lg shadow-cyan-500/20"
+          >
+            <FaDownload />
+            Resume
+          </a>
+
 
           </div>
 
