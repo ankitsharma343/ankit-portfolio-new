@@ -140,7 +140,7 @@ const Hero = () => {
                 className="flex items-center gap-3 rounded-full border border-black px-8 py-4 font-semibold hover:bg-black hover:text-white duration-300"
               >
                 <FaDownload />
-                <div className="border-2 ">
+                <div className="border-2 rounded-2xl p-1 px-3 text-sm font-semibold">
                   Download CV
                 </div>
               </motion.a>
