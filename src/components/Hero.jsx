@@ -316,13 +316,13 @@ const Hero = () => {
                 backdrop-blur-xl
                 "
               >
-                <p className="text-sm text-white">
+                {/* <p className="text-sm text-white">
                   Experience
                 </p>
 
                 <h4 className="text-xl font-bold">
                   MERN Stack
-                </h4>
+                </h4> */}
               </motion.div>
 
               {/* Floating Card */}
@@ -349,13 +349,13 @@ const Hero = () => {
                 backdrop-blur-xl
                 "
               >
-                <p className="text-sm text-neutral-500">
+                {/* <p className="text-sm text-neutral-500">
                   Focus
                 </p>
 
                 <h4 className="text-xl font-bold">
                   Cyber Security
-                </h4>
+                </h4> */}
               </motion.div>
 
             </motion.div>
