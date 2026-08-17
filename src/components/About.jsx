@@ -63,7 +63,7 @@ const About = () => {
             ABOUT ME
           </p>
 
-          <h2 className="text-4xl md:text-5xl font-bold mt-4">
+          <h2 className="text-4xl md:text-5xl font-bold mt-5">
             Building Modern &
             <span className="text-white/70"> Secure</span>
             <br />
@@ -85,11 +85,7 @@ const About = () => {
           >
             <div className="border border-white/10 rounded-3xl p-8 bg-white/0.02 backdrop-blur">
 
-              <h3 className="text-3xl font-bold mb-6">
-                Who am I?
-              </h3>
-
-              <p className="text-white/60 leading-8">
+              <p className="text-white/60 leading-10">
                 I'm <span className="text-white font-semibold">Ankit Baali</span>,
                 a passionate MERN Stack Developer and Cyber Security student
                 who enjoys building fast, responsive, and scalable web

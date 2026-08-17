@@ -61,13 +61,11 @@ const Hero = () => {
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: .3 }}
-              className="mt-10 text-6xl font-black leading-none sm:text-7xl lg:text-[90px]"
+              className="mt-5 text-4xl font-black leading-none sm:text-7xl lg:text-[40px]"
             >
               ANKIT
 
-              <br />
-
-              <span className="text-neutral-300">
+              <span className=" ml-4 text-neutral-300">
                 SHARMA
               </span>
 
@@ -115,35 +113,35 @@ const Hero = () => {
               className="mt-12 flex flex-wrap gap-5"
             >
 
-              <motion.a
-                whileHover={{
-                  scale: 1.05,
-                  y: -3,
-                }}
-                whileTap={{ scale: .95 }}
-                href="#projects"
-                className=" border-2 group flex items-center gap-3 rounded-full bg-black px-8 py-4 font-semibold text-white duration-300"
-              >
-                View Projects
+              <motion.div className="flex items-center gap-4">
+                {/* First Button: View Projects */}
+                <motion.a
+                  whileHover={{
+                    scale: 1.05,
+                    y: -3,
+                  }}
+                  whileTap={{ scale: 0.95 }}
+                  href="#projects"
+                  className="border-2 group flex items-center justify-center gap-3 rounded-full bg-black px-8 py-4 font-semibold text-white duration-300"
+                >
+                  View Projects
+                  <FaArrowRight className="group-hover:translate-x-1 duration-300" />
+                </motion.a>
 
-                <FaArrowRight className="group-hover:translate-x-1 duration-300" />
-
-              </motion.a>
-
-              <motion.a
-                whileHover={{
-                  scale: 1.05,
-                  y: -3,
-                }}
-                whileTap={{ scale: .95 }}
-                href="/resume.pdf"
-                className="flex items-center gap-3 rounded-full border border-black px-8 py-4 font-semibold hover:bg-black hover:text-white duration-300"
-              >
-                <FaDownload />
-                <div className="border-2 rounded-2xl p-1 px-3 text-sm font-semibold">
-                  Download CV
-                </div>
-              </motion.a>
+                {/* Second Button: Download CV */}
+                <motion.a
+                  whileHover={{
+                    scale: 1.05,
+                    y: -3,
+                  }}
+                  whileTap={{ scale: 0.95 }}
+                  href="/resume.pdf"
+                  className="border-2 flex items-center justify-center gap-3 rounded-full px-8 py-4 font-semibold hover:bg-black hover:text-white duration-300"
+                >
+                  <FaDownload />
+                  <span>Download CV</span>
+                </motion.a>
+              </motion.div>
 
             </motion.div>
 
