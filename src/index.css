@@ -1,17 +1,825 @@
 @import "tailwindcss";
 
+/* =========================================================
+   GLOBAL
+   ========================================================= */
+
 html {
   scroll-behavior: smooth;
 }
 
 body {
+  margin: 0;
   background: #000;
-  color: white;
+  color: #fff;
   font-family: Inter, sans-serif;
+  transition:
+    background-color 0.35s ease,
+    color 0.35s ease;
 }
 
 * {
-  /* margin: 2;
-  padding: 1; */
   box-sizing: border-box;
+}
+
+
+/* =========================================================
+   DARK THEME
+   ========================================================= */
+
+html[data-theme="dark"],
+html[data-theme="dark"] body {
+  background: #000;
+  color: #fff;
+}
+
+
+/* =========================================================
+   LIGHT THEME
+   ========================================================= */
+
+html[data-theme="light"],
+html[data-theme="light"] body {
+  background: #f5f5f5;
+  color: #111;
+}
+
+
+/* =========================================================
+   MAIN BLACK BACKGROUNDS
+   ========================================================= */
+
+html[data-theme="light"] .bg-black {
+  background-color: #f5f5f5 !important;
+}
+
+html[data-theme="light"] .bg-black\/5 {
+  background-color: rgba(0, 0, 0, 0.035) !important;
+}
+
+html[data-theme="light"] .bg-black\/10 {
+  background-color: rgba(0, 0, 0, 0.06) !important;
+}
+
+html[data-theme="light"] .bg-black\/40 {
+  background-color: #ffffff !important;
+}
+
+html[data-theme="light"] .bg-black\/50 {
+  background-color: rgba(255, 255, 255, 0.82) !important;
+}
+
+html[data-theme="light"] .bg-black\/70 {
+  background-color: #ffffff !important;
+}
+
+html[data-theme="light"] .bg-black\/90 {
+  background-color: rgba(255, 255, 255, 0.96) !important;
+}
+
+
+/* =========================================================
+   WHITE BACKGROUNDS
+   ========================================================= */
+
+/*
+   Cards/backgrounds that use bg-white/...
+   become soft white cards in light mode.
+*/
+
+html[data-theme="light"] .bg-white\/2 {
+  background-color: rgba(255, 255, 255, 0.65) !important;
+}
+
+html[data-theme="light"] .bg-white\/3 {
+  background-color: rgba(255, 255, 255, 0.72) !important;
+}
+
+html[data-theme="light"] .bg-white\/5 {
+  background-color: rgba(255, 255, 255, 0.82) !important;
+}
+
+html[data-theme="light"] .bg-white\/8 {
+  background-color: rgba(255, 255, 255, 0.9) !important;
+}
+
+html[data-theme="light"] .bg-white\/10 {
+  background-color: rgba(255, 255, 255, 0.92) !important;
+}
+
+
+/*
+   IMPORTANT:
+   Keep actual bg-white buttons WHITE in light mode.
+   Black text stays black.
+*/
+
+html[data-theme="light"] .bg-white {
+  background-color: #111 !important;
+  color: #fff !important;
+}
+
+
+/* =========================================================
+   TEXT COLORS
+   ========================================================= */
+
+html[data-theme="light"] .text-white {
+  color: #111 !important;
+}
+
+html[data-theme="light"] .text-white\/30 {
+  color: #777 !important;
+}
+
+html[data-theme="light"] .text-white\/40 {
+  color: #666 !important;
+}
+
+html[data-theme="light"] .text-white\/50 {
+  color: #555 !important;
+}
+
+html[data-theme="light"] .text-white\/60 {
+  color: #444 !important;
+}
+
+html[data-theme="light"] .text-white\/70 {
+  color: #333 !important;
+}
+
+html[data-theme="light"] .text-white\/80 {
+  color: #222 !important;
+}
+
+html[data-theme="light"] .text-white\/90 {
+  color: #111 !important;
+}
+
+
+/* =========================================================
+   GRAY TEXT
+   ========================================================= */
+
+html[data-theme="light"] .text-gray-300 {
+  color: #444 !important;
+}
+
+html[data-theme="light"] .text-gray-400 {
+  color: #555 !important;
+}
+
+html[data-theme="light"] .text-gray-500 {
+  color: #666 !important;
+}
+
+html[data-theme="light"] .text-gray-600 {
+  color: #777 !important;
+}
+
+html[data-theme="light"] .text-gray-700 {
+  color: #555 !important;
+}
+
+
+/* =========================================================
+   NEUTRAL TEXT
+   ========================================================= */
+
+html[data-theme="light"] .text-neutral-300 {
+  color: #444 !important;
+}
+
+html[data-theme="light"] .text-neutral-400 {
+  color: #555 !important;
+}
+
+html[data-theme="light"] .text-neutral-500 {
+  color: #666 !important;
+}
+
+html[data-theme="light"] .text-neutral-600 {
+  color: #777 !important;
+}
+
+html[data-theme="light"] .text-neutral-700 {
+  color: #555 !important;
+}
+
+html[data-theme="light"] .text-neutral-800 {
+  color: #333 !important;
+}
+
+html[data-theme="light"] .text-neutral-900 {
+  color: #111 !important;
+}
+
+
+/* =========================================================
+   BORDERS
+   ========================================================= */
+
+html[data-theme="light"] .border-white\/10 {
+  border-color: rgba(0, 0, 0, 0.12) !important;
+}
+
+html[data-theme="light"] .border-white\/20 {
+  border-color: rgba(0, 0, 0, 0.18) !important;
+}
+
+html[data-theme="light"] .border-white\/30 {
+  border-color: rgba(0, 0, 0, 0.25) !important;
+}
+
+html[data-theme="light"] .border-white {
+  border-color: #111 !important;
+}
+
+html[data-theme="light"] .border-black\/10 {
+  border-color: rgba(0, 0, 0, 0.12) !important;
+}
+
+html[data-theme="light"] .border-black\/20 {
+  border-color: rgba(0, 0, 0, 0.18) !important;
+}
+
+
+/* =========================================================
+   HOVER BACKGROUNDS
+   ========================================================= */
+
+html[data-theme="light"] .hover\:bg-white:hover {
+  background-color: #111 !important;
+  color: #fff !important;
+}
+
+html[data-theme="light"] .hover\:bg-white\/5:hover {
+  background-color: rgba(0, 0, 0, 0.05) !important;
+}
+
+html[data-theme="light"] .hover\:bg-white\/10:hover {
+  background-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+html[data-theme="light"] .hover\:bg-white\/\[0\.07\]:hover {
+  background-color: rgba(0, 0, 0, 0.07) !important;
+}
+
+
+/* =========================================================
+   HOVER TEXT
+   ========================================================= */
+
+html[data-theme="light"] .hover\:text-white:hover {
+  color: #000 !important;
+}
+
+html[data-theme="light"] .group:hover .group-hover\:text-gray-300 {
+  color: #222 !important;
+}
+
+html[data-theme="light"] .group:hover .group-hover\:text-black {
+  color: #000 !important;
+}
+
+
+/* =========================================================
+   NAVBAR
+   ========================================================= */
+
+html[data-theme="light"] nav > div:first-child {
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.97),
+      rgba(248, 248, 248, 0.96),
+      rgba(242, 242, 242, 0.96)
+    ) !important;
+
+  border-color: rgba(0, 0, 0, 0.12) !important;
+
+  box-shadow:
+    0 10px 40px rgba(0, 0, 0, 0.10) !important;
+}
+
+
+/* Navbar logo */
+
+html[data-theme="light"] nav h1 {
+  color: #111 !important;
+}
+
+html[data-theme="light"] nav h1 span {
+  color: #666 !important;
+}
+
+
+/* Navbar links */
+
+html[data-theme="light"] nav a {
+  color: #333 !important;
+}
+
+html[data-theme="light"] nav a:hover {
+  color: #000 !important;
+}
+
+
+/* Navbar underline */
+
+html[data-theme="light"] nav a span {
+  background: #111 !important;
+}
+
+
+/* Navbar icon buttons */
+
+html[data-theme="light"] nav button {
+  color: #333 !important;
+}
+
+html[data-theme="light"] nav button:hover {
+  color: #000 !important;
+}
+
+
+/* Resume button */
+
+html[data-theme="light"] nav a.bg-white {
+  background: #111 !important;
+  color: #fff !important;
+}
+
+html[data-theme="light"] nav a.bg-white:hover {
+  background: #222 !important;
+  color: #fff !important;
+}
+
+
+/* Mobile menu */
+
+html[data-theme="light"] nav > div:nth-child(2) {
+  background: rgba(255, 255, 255, 0.97) !important;
+  border-color: rgba(0, 0, 0, 0.12) !important;
+}
+
+html[data-theme="light"] nav > div:nth-child(2) a {
+  color: #333 !important;
+}
+
+html[data-theme="light"] nav > div:nth-child(2) a:hover {
+  color: #000 !important;
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+html[data-theme="light"] #home {
+  background: #f5f5f5 !important;
+  color: #111 !important;
+}
+
+
+/* Hero black glow becomes subtle gray */
+
+html[data-theme="light"] #home .bg-black\/5 {
+  background-color: rgba(0, 0, 0, 0.035) !important;
+}
+
+
+/* Hero badge */
+
+html[data-theme="light"] #home .border-black\/10 {
+  border-color: rgba(0, 0, 0, 0.12) !important;
+}
+
+
+/* Hero buttons */
+
+html[data-theme="light"] #home .bg-black {
+  background-color: #111 !important;
+  color: #fff !important;
+}
+
+html[data-theme="light"] #home .text-black {
+  color: #111 !important;
+}
+
+
+/* =========================================================
+   ABOUT
+   ========================================================= */
+
+html[data-theme="light"] #about {
+  background: #f5f5f5 !important;
+  color: #111 !important;
+}
+
+
+/* About glass card */
+
+html[data-theme="light"] #about .bg-white\/0\.02 {
+  background-color: rgba(255, 255, 255, 0.72) !important;
+}
+
+
+/* About heading secondary */
+
+html[data-theme="light"] #about .text-white\/70 {
+  color: #444 !important;
+}
+
+
+/* =========================================================
+   SKILLS
+   ========================================================= */
+
+html[data-theme="light"] #skills {
+  background: #f5f5f5 !important;
+  color: #111 !important;
+}
+
+
+/* Skills cards */
+
+html[data-theme="light"] #skills .bg-white\/3 {
+  background-color: rgba(255, 255, 255, 0.72) !important;
+}
+
+
+/* Skill icon boxes */
+
+html[data-theme="light"] #skills .bg-white\/5 {
+  background-color: rgba(0, 0, 0, 0.035) !important;
+}
+
+
+/* Skill progress background */
+
+html[data-theme="light"] #skills .bg-white\/10 {
+  background-color: rgba(0, 0, 0, 0.10) !important;
+}
+
+
+/* Skill progress */
+
+html[data-theme="light"] #skills .bg-white {
+  background-color: #111 !important;
+}
+
+
+/* Skill hover icon */
+
+html[data-theme="light"] #skills .group:hover .group-hover\:bg-white {
+  background-color: #111 !important;
+  color: #fff !important;
+}
+
+
+/* Skills grid */
+
+html[data-theme="light"] #skills [style*="linear-gradient"] {
+  opacity: 0.035;
+}
+
+
+/* =========================================================
+   PROJECTS
+   ========================================================= */
+
+html[data-theme="light"] #projects {
+  background: #f5f5f5 !important;
+  color: #111 !important;
+}
+
+
+/* Project cards */
+
+html[data-theme="light"] #projects article {
+  background-color: rgba(255, 255, 255, 0.72) !important;
+  border-color: rgba(0, 0, 0, 0.12) !important;
+}
+
+
+/* Project top */
+
+html[data-theme="light"] #projects article > div:first-child {
+  background:
+    linear-gradient(
+      to bottom right,
+      rgba(255, 255, 255, 0.95),
+      rgba(245, 245, 245, 0.95)
+    ) !important;
+}
+
+
+/* Project icon */
+
+html[data-theme="light"] #projects article .bg-black\/70 {
+  background-color: #111 !important;
+  color: #fff !important;
+}
+
+
+/* Project decorative circles */
+
+html[data-theme="light"] #projects article .border-white\/10 {
+  border-color: rgba(0, 0, 0, 0.12) !important;
+}
+
+
+/* Project category */
+
+html[data-theme="light"] #projects article .bg-black\/50 {
+  background-color: rgba(255, 255, 255, 0.9) !important;
+}
+
+
+/* Project tech pills */
+
+html[data-theme="light"] #projects article .bg-white\/5 {
+  background-color: rgba(0, 0, 0, 0.035) !important;
+}
+
+
+/* GitHub button */
+
+html[data-theme="light"] #projects article a.border-white\/10 {
+  color: #111 !important;
+}
+
+
+/* Live Demo button */
+
+html[data-theme="light"] #projects article a.bg-white {
+  background-color: #111 !important;
+  color: #fff !important;
+}
+
+html[data-theme="light"] #projects article a.bg-white:hover {
+  background-color: #222 !important;
+  color: #fff !important;
+}
+
+
+/* =========================================================
+   EXPERIENCE
+   ========================================================= */
+
+html[data-theme="light"] #experience {
+  background: #f5f5f5 !important;
+  color: #111 !important;
+}
+
+
+/* Timeline line */
+
+html[data-theme="light"] #experience .bg-white\/10 {
+  background-color: rgba(0, 0, 0, 0.12) !important;
+}
+
+
+/* Timeline dot */
+
+html[data-theme="light"] #experience .bg-black {
+  background-color: #fff !important;
+  color: #111 !important;
+}
+
+
+/* Experience cards */
+
+html[data-theme="light"] #experience .bg-white\/3 {
+  background-color: rgba(255, 255, 255, 0.72) !important;
+}
+
+
+/* Experience small pills */
+
+html[data-theme="light"] #experience .bg-white\/5 {
+  background-color: rgba(0, 0, 0, 0.035) !important;
+}
+
+
+/* =========================================================
+   CONTACT
+   ========================================================= */
+
+html[data-theme="light"] #contact {
+  background: #f5f5f5 !important;
+  color: #111 !important;
+}
+
+
+/* Contact cards */
+
+html[data-theme="light"] #contact .bg-white\/3 {
+  background-color: rgba(255, 255, 255, 0.72) !important;
+}
+
+
+/* Contact inner links */
+
+html[data-theme="light"] #contact .bg-white\/2 {
+  background-color: rgba(0, 0, 0, 0.025) !important;
+}
+
+
+/* Contact hover */
+
+html[data-theme="light"] #contact .hover\:bg-white:hover {
+  background-color: #111 !important;
+  color: #fff !important;
+}
+
+
+/* Contact icon box */
+
+html[data-theme="light"] #contact .bg-white {
+  background-color: #111 !important;
+  color: #fff !important;
+}
+
+
+/* Contact inputs */
+
+html[data-theme="light"] #contact input,
+html[data-theme="light"] #contact textarea {
+  background-color: #fff !important;
+  color: #111 !important;
+  border-color: rgba(0, 0, 0, 0.14) !important;
+}
+
+
+/* Placeholder */
+
+html[data-theme="light"] #contact input::placeholder,
+html[data-theme="light"] #contact textarea::placeholder {
+  color: #999 !important;
+}
+
+
+/* Input focus */
+
+html[data-theme="light"] #contact input:focus,
+html[data-theme="light"] #contact textarea:focus {
+  border-color: rgba(0, 0, 0, 0.35) !important;
+}
+
+
+/* Send button */
+
+html[data-theme="light"] #contact button.bg-white {
+  background-color: #111 !important;
+  color: #fff !important;
+}
+
+html[data-theme="light"] #contact button.bg-white:hover {
+  background-color: #222 !important;
+  color: #fff !important;
+}
+
+
+
+/* =========================================================
+   FOOTER — LIGHT THEME
+   ========================================================= */
+
+html[data-theme="light"] footer {
+  background: #f5f5f5 !important;
+  color: #111 !important;
+  border-color: rgba(0, 0, 0, 0.12) !important;
+}
+
+
+/* Footer background glow */
+
+html[data-theme="light"] footer .bg-white\/3 {
+  background-color: rgba(0, 0, 0, 0.025) !important;
+}
+
+
+/* Footer top/bottom borders */
+
+html[data-theme="light"] footer .border-white\/10 {
+  border-color: rgba(0, 0, 0, 0.12) !important;
+}
+
+
+/* =========================================================
+   FOOTER QUICK LINKS
+   ========================================================= */
+
+/*
+   IMPORTANT:
+   Quick Links should NOT get a black background on hover.
+   Only the text becomes darker.
+*/
+
+html[data-theme="light"] footer a.hover\:text-white:hover {
+  background-color: transparent !important;
+  color: #111 !important;
+}
+
+
+/* Quick Links normal text */
+
+html[data-theme="light"] footer .text-gray-500 {
+  color: #666 !important;
+}
+
+
+/* Email */
+
+html[data-theme="light"] footer .text-gray-300 {
+  color: #444 !important;
+}
+
+
+/* Copyright */
+
+html[data-theme="light"] footer .text-gray-600 {
+  color: #777 !important;
+}
+
+
+/* =========================================================
+   SOCIAL ICON BUTTONS
+   ========================================================= */
+
+/*
+   Social buttons SHOULD have a hover background,
+   but it should stay clean and not affect Quick Links.
+*/
+
+html[data-theme="light"] footer a.w-10:hover {
+  background-color: #111 !important;
+  color: #fff !important;
+}
+
+
+/* Normal social icon buttons */
+
+html[data-theme="light"] footer a.w-10 {
+  border-color: rgba(0, 0, 0, 0.14) !important;
+  color: #111 !important;
+}
+
+
+/* =========================================================
+   EMAIL / WHATSAPP HOVER
+   ========================================================= */
+
+/*
+   These are text links, so NO black rectangle.
+*/
+
+html[data-theme="light"] footer a:not(.w-10):hover {
+  background-color: transparent !important;
+  color: #111 !important;
+}
+
+
+/* =========================================================
+   BACK TO TOP BUTTON
+   ========================================================= */
+
+/*
+   Back-to-top button gets the same proper hover
+   as social buttons.
+*/
+
+html[data-theme="light"] footer button:hover {
+  background-color: #111 !important;
+  color: #fff !important;
+}
+
+html[data-theme="light"] footer button {
+  border-color: rgba(0, 0, 0, 0.14) !important;
+  color: #111 !important;
+}
+
+
+/* =========================================================
+   FOOTER HEADINGS
+   ========================================================= */
+
+html[data-theme="light"] footer h2,
+html[data-theme="light"] footer h3 {
+  color: #111 !important;
+}
+
+
+/* =========================================================
+   FOOTER SMOOTH TRANSITION
+   ========================================================= */
+
+html[data-theme="light"] footer a,
+html[data-theme="light"] footer button {
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease;
 }

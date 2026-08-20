@@ -136,7 +136,7 @@ const Hero = () => {
                   }}
                   whileTap={{ scale: 0.95 }}
                   href="/resume.pdf"
-                  className="border-2 flex items-center justify-center gap-3 rounded-full px-8 py-4 font-semibold hover:bg-black hover:text-white duration-300"
+                  className="border-2 flex items-center justify-center gap-3 rounded-full px-8 py-4 font-semibold hover:bg-white hover:text-black duration-300"
                 >
                   <FaDownload />
                   <span>Download CV</span>
@@ -156,7 +156,7 @@ const Hero = () => {
               <div className="border-2 rounded-2xl">
                 <a
                   href="https://github.com/ankitsharma343"
-                  className="flex h-14 w-14 items-center justify-center rounded-full border border-black/10 hover:bg-black hover:text-white duration-300"
+                  className="flex h-14 w-14 items-center justify-center rounded-full border border-black/10 hover:bg-white hover:text-black duration-300"
                 >
                   <FaGithub size={20} />
                 </a>
@@ -165,7 +165,7 @@ const Hero = () => {
               <div className="border-2 rounded-2xl">
                 <a
                   href="https://www.linkedin.com/in/ankit-sharma-1761643a2/"
-                  className="flex h-14 w-14 items-center justify-center rounded-full border border-black/10 hover:bg-black hover:text-white duration-300"
+                  className="flex h-14 w-14 items-center justify-center rounded-full border border-black/10 hover:bg-white hover:text-black duration-300"
                 >
                   <FaLinkedin size={20} />
                 </a>
@@ -174,7 +174,7 @@ const Hero = () => {
               <div className="border-2 rounded-2xl">
                 <a
                   href="#"
-                  className="flex h-14 w-14 items-center justify-center rounded-full border border-black/10 hover:bg-black hover:text-white duration-300"
+                  className="flex h-14 w-14 items-center justify-center rounded-full border border-black/10 hover:bg-white hover:text-black duration-300"
                 >
                   <FaInstagram size={20} />
                 </a>

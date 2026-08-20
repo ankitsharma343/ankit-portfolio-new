@@ -1,9 +1,15 @@
 import { useState } from "react";
 import { HiMenuAlt3, HiX } from "react-icons/hi";
-import { FaGithub, FaLinkedin, FaDownload, FaWhatsapp } from "react-icons/fa";
-import { FiTerminal, FiSun, FiMoon } from "react-icons/fi";
+import {
+  FaGithub,
+  FaLinkedin,
+  FaDownload,
+  FaWhatsapp,
+} from "react-icons/fa";
+import { FiSun, FiMoon } from "react-icons/fi";
 import { motion } from "framer-motion";
 import resume from "../assets/resume.png";
+import { useTheme } from "../context/ThemeContext.jsx";
 
 const links = [
   "Home",
@@ -16,7 +22,8 @@ const links = [
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
-  const [dark, setDark] = useState(true);
+
+  const { isDark, setIsDark } = useTheme();
 
   return (
     <motion.nav
@@ -27,27 +34,54 @@ const Navbar = () => {
     >
       {/* Main Navbar */}
       <div
-        className="
+        className={`
           max-w-7xl mx-auto
           h-20
           px-5 sm:px-7 lg:px-9
           flex items-center justify-between
           rounded-full
-          border border-white/10
-          bg-linear-to-b from-[#29292c]/95 via-[#19191b]/95 to-[#111113]/95
+          border
           backdrop-blur-2xl
-          shadow-[0_10px_40px_rgba(0,0,0,0.35)]
-        "
+          transition-all duration-300
+
+          ${
+            isDark
+              ? `
+                border-white/10
+                bg-linear-to-b
+                from-[#29292c]/95
+                via-[#19191b]/95
+                to-[#111113]/95
+                shadow-[0_10px_40px_rgba(0,0,0,0.35)]
+              `
+              : `
+                border-black/10
+                bg-white/90
+                shadow-[0_10px_40px_rgba(0,0,0,0.10)]
+              `
+          }
+        `}
       >
         {/* Logo */}
         <motion.div
-  whileHover={{ scale: 1.03 }}
-  className="flex items-center cursor-pointer"
->
-  <h1 className="text-xl md:text-2xl font-bold tracking-[0.18em] text-white">
-    ANKIT<span className="text-gray-400">.</span>
-  </h1>
-</motion.div>
+          whileHover={{ scale: 1.03 }}
+          className="flex items-center cursor-pointer"
+        >
+          <h1
+            className={`
+              text-xl md:text-2xl
+              font-bold
+              tracking-[0.18em]
+              transition-colors duration-300
+              ${isDark ? "text-white" : "text-black"}
+            `}
+          >
+            ANKIT
+            <span className={isDark ? "text-gray-400" : "text-gray-500"}>
+              .
+            </span>
+          </h1>
+        </motion.div>
 
         {/* Desktop Menu */}
         <ul className="hidden lg:flex items-center gap-10">
@@ -55,21 +89,25 @@ const Navbar = () => {
             <li key={item}>
               <a
                 href={`#${item.toLowerCase()}`}
-                className="
+                className={`
                   relative
                   text-[15px]
                   font-medium
                   tracking-wide
-                  text-gray-300
-                  hover:text-white
                   transition-all duration-300
                   group
-                "
+
+                  ${
+                    isDark
+                      ? "text-gray-300 hover:text-white"
+                      : "text-gray-700 hover:text-black"
+                  }
+                `}
               >
                 {item}
 
                 <span
-                  className="
+                  className={`
                     absolute
                     left-1/2
                     -bottom-2
@@ -77,10 +115,11 @@ const Navbar = () => {
                     w-0
                     -translate-x-1/2
                     rounded-full
-                    bg-white
                     transition-all duration-300
                     group-hover:w-full
-                  "
+
+                    ${isDark ? "bg-white" : "bg-black"}
+                  `}
                 />
               </a>
             </li>
@@ -89,20 +128,24 @@ const Navbar = () => {
 
         {/* Right Side */}
         <div className="hidden lg:flex items-center gap-3">
+
           {/* GitHub */}
           <a
             href="https://github.com/ankitsharma343"
             target="_blank"
             rel="noreferrer"
-            className="
+            className={`
               p-3
               rounded-full
-              text-gray-300
-              hover:text-white
-              hover:bg-white/10
               transition-all duration-300
               hover:scale-105
-            "
+
+              ${
+                isDark
+                  ? "text-gray-300 hover:text-white hover:bg-white/10"
+                  : "text-gray-700 hover:text-black hover:bg-black/5"
+              }
+            `}
           >
             <FaGithub size={19} />
           </a>
@@ -112,15 +155,18 @@ const Navbar = () => {
             href="https://www.linkedin.com/in/ankit-sharma-1761643a2/"
             target="_blank"
             rel="noreferrer"
-            className="
+            className={`
               p-3
               rounded-full
-              text-gray-300
-              hover:text-white
-              hover:bg-white/10
               transition-all duration-300
               hover:scale-105
-            "
+
+              ${
+                isDark
+                  ? "text-gray-300 hover:text-white hover:bg-white/10"
+                  : "text-gray-700 hover:text-black hover:bg-black/5"
+              }
+            `}
           >
             <FaLinkedin size={19} />
           </a>
@@ -130,15 +176,18 @@ const Navbar = () => {
             href="https://web.whatsapp.com/7495095523"
             target="_blank"
             rel="noreferrer"
-            className="
+            className={`
               p-3
               rounded-full
-              text-gray-300
-              hover:text-white
-              hover:bg-white/10
               transition-all duration-300
               hover:scale-105
-            "
+
+              ${
+                isDark
+                  ? "text-gray-300 hover:text-white hover:bg-white/10"
+                  : "text-gray-700 hover:text-black hover:bg-black/5"
+              }
+            `}
           >
             <FaWhatsapp size={19} />
           </a>
@@ -147,19 +196,22 @@ const Navbar = () => {
           <a
             href={resume}
             download
-            className="
+            className={`
               flex items-center gap-2
               px-5 py-2.5
               ml-1
               rounded-full
-              bg-white
-              text-black
               font-semibold
               text-sm
-              hover:bg-gray-200
-              hover:scale-105
               transition-all duration-300
-            "
+              hover:scale-105
+
+              ${
+                isDark
+                  ? "bg-white text-black hover:bg-gray-200"
+                  : "bg-black text-white hover:bg-gray-800"
+              }
+            `}
           >
             <FaDownload size={14} />
             Resume
@@ -167,43 +219,73 @@ const Navbar = () => {
 
           {/* Theme Switch */}
           <div
-            className="
+            className={`
               ml-2
               flex items-center
               p-1
               rounded-full
-              border border-white/10
-              bg-white/3
-            "
+              border
+              transition-all duration-300
+
+              ${
+                isDark
+                  ? "border-white/10 bg-white/5"
+                  : "border-black/10 bg-black/5"
+              }
+            `}
           >
+            {/* Light Mode */}
             <button
-              onClick={() => setDark(false)}
+              type="button"
+              aria-label="Enable light mode"
+              onClick={() => setIsDark(false)}
               className={`
                 w-10 h-10
                 rounded-full
                 flex items-center justify-center
                 transition-all duration-300
+
                 ${
-                  !dark
-                    ? "bg-white/10 text-white"
-                    : "text-gray-500 hover:text-white"
+                  !isDark
+                    ? `
+                      bg-white
+                      text-black
+                      shadow-[0_2px_8px_rgba(0,0,0,0.15)]
+                    `
+                    : `
+                      text-gray-500
+                      hover:text-white
+                      hover:bg-white/10
+                    `
                 }
               `}
             >
               <FiSun size={18} />
             </button>
 
+            {/* Dark Mode */}
             <button
-              onClick={() => setDark(true)}
+              type="button"
+              aria-label="Enable dark mode"
+              onClick={() => setIsDark(true)}
               className={`
                 w-10 h-10
                 rounded-full
                 flex items-center justify-center
                 transition-all duration-300
+
                 ${
-                  dark
-                    ? "bg-[#29292c] text-white shadow-inner"
-                    : "text-gray-500 hover:text-white"
+                  isDark
+                    ? `
+                      bg-[#29292c]
+                      text-white
+                      shadow-inner
+                    `
+                    : `
+                      text-gray-500
+                      hover:text-black
+                      hover:bg-black/5
+                    `
                 }
               `}
             >
@@ -214,17 +296,23 @@ const Navbar = () => {
 
         {/* Mobile Button */}
         <button
+          type="button"
           onClick={() => setOpen(!open)}
-          className="
+          className={`
             lg:hidden
             w-12 h-12
             rounded-full
-            border border-white/10
-            bg-white/5
-            text-white
+            border
             flex items-center justify-center
             text-3xl
-          "
+            transition-all duration-300
+
+            ${
+              isDark
+                ? "border-white/10 bg-white/5 text-white"
+                : "border-black/10 bg-black/5 text-black"
+            }
+          `}
         >
           {open ? <HiX /> : <HiMenuAlt3 />}
         </button>
@@ -238,103 +326,227 @@ const Navbar = () => {
           opacity: open ? 1 : 0,
         }}
         transition={{ duration: 0.35 }}
-        className="
+        className={`
           overflow-hidden
           lg:hidden
           max-w-7xl mx-auto
           mt-3
           rounded-[30px]
-          border border-white/10
-          bg-[#111113]/95
+          border
           backdrop-blur-2xl
-        "
+          transition-colors duration-300
+
+          ${
+            isDark
+              ? "border-white/10 bg-[#111113]/95"
+              : "border-black/10 bg-white/95"
+          }
+        `}
       >
         <div className="flex flex-col items-center justify-center h-full gap-7">
+
+          {/* Mobile Links */}
           {links.map((item) => (
             <a
               key={item}
               href={`#${item.toLowerCase()}`}
               onClick={() => setOpen(false)}
-              className="
+              className={`
                 text-2xl
                 font-medium
                 tracking-wide
-                text-gray-300
-                hover:text-white
                 transition-all duration-300
-              "
+
+                ${
+                  isDark
+                    ? "text-gray-300 hover:text-white"
+                    : "text-gray-700 hover:text-black"
+                }
+              `}
             >
               {item}
             </a>
           ))}
 
+          {/* Mobile Social Buttons */}
           <div className="flex items-center gap-4 mt-5">
+
+            {/* GitHub */}
             <a
               href="https://github.com/ankitsharma343"
               target="_blank"
               rel="noreferrer"
-              className="
+              className={`
                 w-12 h-12
                 rounded-full
-                border border-white/10
-                bg-white/5
+                border
                 flex items-center justify-center
-                hover:bg-white/10
-                transition
-              "
+                transition-all duration-300
+
+                ${
+                  isDark
+                    ? `
+                      border-white/10
+                      bg-white/5
+                      text-white
+                      hover:bg-white/10
+                    `
+                    : `
+                      border-black/10
+                      bg-black/5
+                      text-black
+                      hover:bg-black/10
+                    `
+                }
+              `}
             >
               <FaGithub size={21} />
             </a>
 
+            {/* LinkedIn */}
             <a
               href="https://www.linkedin.com/in/ankit-sharma-1761643a2/"
               target="_blank"
               rel="noreferrer"
-              className="
+              className={`
                 w-12 h-12
                 rounded-full
-                border border-white/10
-                bg-white/5
+                border
                 flex items-center justify-center
-                hover:bg-white/10
-                transition
-              "
+                transition-all duration-300
+
+                ${
+                  isDark
+                    ? `
+                      border-white/10
+                      bg-white/5
+                      text-white
+                      hover:bg-white/10
+                    `
+                    : `
+                      border-black/10
+                      bg-black/5
+                      text-black
+                      hover:bg-black/10
+                    `
+                }
+              `}
             >
               <FaLinkedin size={21} />
             </a>
 
+            {/* WhatsApp */}
             <a
               href="https://web.whatsapp.com/7495095523"
               target="_blank"
               rel="noreferrer"
-              className="
+              className={`
                 w-12 h-12
                 rounded-full
-                border border-white/10
-                bg-white/5
+                border
                 flex items-center justify-center
-                hover:bg-white/10
-                transition
-              "
+                transition-all duration-300
+
+                ${
+                  isDark
+                    ? `
+                      border-white/10
+                      bg-white/5
+                      text-white
+                      hover:bg-white/10
+                    `
+                    : `
+                      border-black/10
+                      bg-black/5
+                      text-black
+                      hover:bg-black/10
+                    `
+                }
+              `}
             >
               <FaWhatsapp size={21} />
             </a>
 
+            {/* Resume */}
             <a
               href={resume}
               download
-              className="
+              className={`
                 flex items-center gap-2
                 px-5 py-3
                 rounded-full
-                bg-white
-                text-black
                 font-semibold
-              "
+                transition-all duration-300
+
+                ${
+                  isDark
+                    ? "bg-white text-black"
+                    : "bg-black text-white"
+                }
+              `}
             >
               <FaDownload size={14} />
               Resume
             </a>
+          </div>
+
+          {/* Mobile Theme Switch */}
+          <div
+            className={`
+              flex items-center
+              p-1
+              mt-2
+              rounded-full
+              border
+
+              ${
+                isDark
+                  ? "border-white/10 bg-white/5"
+                  : "border-black/10 bg-black/5"
+              }
+            `}
+          >
+            {/* Light */}
+            <button
+              type="button"
+              onClick={() => setIsDark(false)}
+              aria-label="Enable light mode"
+              className={`
+                w-10 h-10
+                rounded-full
+                flex items-center justify-center
+                transition-all duration-300
+
+                ${
+                  !isDark
+                    ? "bg-white text-black shadow-md"
+                    : "text-gray-500 hover:text-white"
+                }
+              `}
+            >
+              <FiSun size={18} />
+            </button>
+
+            {/* Dark */}
+            <button
+              type="button"
+              onClick={() => setIsDark(true)}
+              aria-label="Enable dark mode"
+              className={`
+                w-10 h-10
+                rounded-full
+                flex items-center justify-center
+                transition-all duration-300
+
+                ${
+                  isDark
+                    ? "bg-[#29292c] text-white shadow-inner"
+                    : "text-gray-500 hover:text-black"
+                }
+              `}
+            >
+              <FiMoon size={18} />
+            </button>
           </div>
         </div>
       </motion.div>
