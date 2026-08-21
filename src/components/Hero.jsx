@@ -290,72 +290,6 @@ const Hero = () => {
                 />
               </div>
 
-              {/* Floating Card */}
-
-              <motion.div
-                animate={{
-                  y: [0, -12, 0],
-                }}
-                transition={{
-                  repeat: Infinity,
-                  duration: 4,
-                }}
-                className="
-                absolute
-                -left-10
-                top-12
-                rounded-2xl
-                border
-                border-black/10
-                bg-black/90
-                px-6
-                py-4
-                shadow-xl
-                backdrop-blur-xl
-                "
-              >
-                {/* <p className="text-sm text-white">
-                  Experience
-                </p>
-
-                <h4 className="text-xl font-bold">
-                  MERN Stack
-                </h4> */}
-              </motion.div>
-
-              {/* Floating Card */}
-
-              <motion.div
-                animate={{
-                  y: [0, 10, 0],
-                }}
-                transition={{
-                  repeat: Infinity,
-                  duration: 5,
-                }}
-                className="
-                absolute
-                -right-10
-                bottom-16
-                rounded-2xl
-                border
-                border-black/10
-                bg-black/90
-                px-6
-                py-4
-                shadow-xl
-                backdrop-blur-xl
-                "
-              >
-                {/* <p className="text-sm text-neutral-500">
-                  Focus
-                </p>
-
-                <h4 className="text-xl font-bold">
-                  Cyber Security
-                </h4> */}
-              </motion.div>
-
             </motion.div>
 
           </motion.div>
@@ -363,66 +297,7 @@ const Hero = () => {
         </div>
 
       </div>
-
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{
-          opacity: 1,
-          y: [0, 10, 0],
-        }}
-        transition={{
-          opacity: { delay: 1.5 },
-          y: {
-            repeat: Infinity,
-            duration: 1.8,
-            ease: "easeInOut",
-          },
-        }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
-      >
-        <div className="flex flex-col items-center gap-3">
-
-          <div className="flex h-14 w-8 justify-center rounded-full border border-black/20">
-            <motion.div
-              animate={{
-                y: [0, 18, 0],
-              }}
-              transition={{
-                repeat: Infinity,
-                duration: 1.5,
-              }}
-              className="mt-2 h-3 w-1 rounded-full bg-black"
-            />
-          </div>
-
-        </div>
-      </motion.div>
-
-      <div
-        className="
-          pointer-events-none
-          absolute
-          bottom-0
-          left-1/2
-          hidden
-          -translate-x-1/2
-          select-none
-          lg:block
-        "
-      >
-        <h1
-          className="
-            text-[170px]
-            font-black
-            leading-none
-            tracking-tight
-            text-black/3
-          "
-        >
-          DEVELOPER
-        </h1>
-      </div>
-
+      
     </section>
   );
 };

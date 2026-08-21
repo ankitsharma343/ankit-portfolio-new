@@ -77,9 +77,7 @@ const Navbar = () => {
             `}
           >
             ANKIT
-            <span className={isDark ? "text-gray-400" : "text-gray-500"}>
-              .
-            </span>
+      
           </h1>
         </motion.div>
 
